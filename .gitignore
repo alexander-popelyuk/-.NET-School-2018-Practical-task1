@@ -1,0 +1,6 @@
+/Practical task1/.vs
+/Practical task1/obj
+/Practical task1/bin/Release/*.config
+/Practical task1/bin/Release/*.pdb
+/Practical task1/bin/Debug/*.config
+/Practical task1/bin/Debug/*.pdb
