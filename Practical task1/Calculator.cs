@@ -50,7 +50,7 @@ namespace Practical_task1
 
         private bool PromptOperand(string name, out decimal value)
         {
-            Console.Write("Please, enter operand number {0}: ", name);
+            Console.Write("Please, enter operand {0}: ", name);
             string input = Console.ReadLine();
             return decimal.TryParse(input, out value);
         }
@@ -58,7 +58,7 @@ namespace Practical_task1
         private bool PromptOperation(out string operation)
         {
             const string OPERATION_LIST = "+-*/";
-            Console.Write("Please, enter desired operation [{0}]: ", OPERATION_LIST);
+            Console.Write("Please, enter operation [{0}]: ", OPERATION_LIST);
             string input = Console.ReadLine();
             operation = input.Trim();
             return !string.IsNullOrEmpty(operation) && OPERATION_LIST.Contains(operation);
