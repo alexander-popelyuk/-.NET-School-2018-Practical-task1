@@ -33,9 +33,12 @@ namespace Practical_task1
     {
         static void Main(string[] args)
         {
-            // help before progam starts
-            // move exception handling to class method?
-            // test everything on VM
+            Console.WriteLine("Welcome to .NET Calculator v.1.0!");
+            Console.WriteLine("This program is used to claculate result of equation: X <op> Y,");
+            Console.WriteLine("where <op> is one of the following operations: '+', '-', '*', '/'.");
+            Console.WriteLine("Program requests input operands and desired operation one by one");
+            Console.WriteLine("then performs calculations and prints result.");
+            Console.WriteLine();
 
             try
             {

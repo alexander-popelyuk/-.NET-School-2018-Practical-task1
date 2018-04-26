@@ -119,8 +119,7 @@ namespace Practical_task1
 
         private void PrintHelp(string text)
         {
-            Console.WriteLine("HELP: {0}.", text);
-            Console.WriteLine("HELP: Press 'Ctrl+C' to exit.");
+            Console.WriteLine("HELP: {0}", text);
         }
 
         private void PrintResult(decimal result)
