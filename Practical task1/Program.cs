@@ -29,8 +29,14 @@ using System.Threading.Tasks;
 
 namespace Practical_task1
 {
+    //
+    // Summary:
+    //   Main class containing program entry point.
     class Program
     {
+        //
+        // Summary:
+        //   Entry point to the program.
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to .NET Calculator v.1.0!");

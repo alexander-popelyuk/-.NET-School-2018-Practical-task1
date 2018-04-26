@@ -29,31 +29,70 @@ using System.Threading.Tasks;
 
 namespace Practical_task1
 {
+    //
+    // Summary:
+    //  Incapsulates calculator object.
     class Calculator
     {
+        //
+        // Summary:
+        //  Performs single calculation cycle.
         public void Run()
         {
             decimal x, y;
-            string op;
+            string operation;
 
-            PromptInput(out x, out y, out op);
-            PrintResult(CalcResult(x, y, op));
+            PromptInput(out x, out y, out operation);
+            PrintResult(CalcResult(x, y, operation));
         }
-
-        private void PromptInput(out decimal x, out decimal y, out string op)
+        //
+        // Summary:
+        //   Prompts user parameters required for calculations until got correct input.
+        //
+        // Parameters:
+        //   x:
+        //     The X operand.
+        //
+        //   y:
+        //     The Y operand.
+        //
+        //   operation:
+        //     The operation to be performed.
+        private void PromptInput(out decimal x, out decimal y, out string operation)
         {
             while (!PromptOperand("X", out x)) OnWrongOperand();
             while (!PromptOperand("Y", out y)) OnWrongOperand();
-            while (!PromptOperation(out op)) OnWrongOperation();
+            while (!PromptOperation(out operation)) OnWrongOperation();
         }
-
+        //
+        // Summary:
+        //   Promts user for number operand.
+        //
+        // Parameters:
+        //   name:
+        //     The operand name.
+        //
+        //   value:
+        //     The operand value.
+        //
+        // Returns:
+        //   true if operation is successful; false otherwise.
         private bool PromptOperand(string name, out decimal value)
         {
             Console.Write("Please, enter operand {0}: ", name);
             string input = Console.ReadLine();
             return decimal.TryParse(input, out value);
         }
-
+        //
+        // Summary:
+        //   Promts user for operation.
+        //
+        // Parameters:
+        //   operation:
+        //     The operation string.
+        //
+        // Returns:
+        //   true if operation is successful; false otherwise.
         private bool PromptOperation(out string operation)
         {
             const string OPERATION_LIST = "+-*/";
@@ -62,22 +101,41 @@ namespace Practical_task1
             operation = input.Trim();
             return !string.IsNullOrEmpty(operation) && OPERATION_LIST.Contains(operation);
         }
-
+        //
+        // Summary:
+        //   Performs wrong operand error handling.
         private void OnWrongOperand()
         {
             PrintError("Wrong operand entered.");
             PrintHelp("Enter number and press 'Enter'.");
         }
-
+        //
+        // Summary:
+        //   Performs wrong operation error handling.
         private void OnWrongOperation()
         {
             PrintError("Wrong operation entered.");
             PrintHelp("Enter single operation character and press 'Enter'.");
         }
-
-        private decimal CalcResult(decimal x, decimal y, string op)
+        //
+        // Summary:
+        //   Calculates operation result.
+        //
+        // Parameters:
+        //   x:
+        //     The X operand.
+        //
+        //   y:
+        //     The Y operand.
+        //
+        //   operation:
+        //     The operation to be performed.
+        //
+        // Returns:
+        //   Result of calculations.
+        private decimal CalcResult(decimal x, decimal y, string operation)
         {
-            switch (op)
+            switch (operation)
             {
                 case "+":
                     return Add(x, y);
@@ -91,37 +149,103 @@ namespace Practical_task1
                     return 0;
             }
         }
-
+        //
+        // Summary:
+        //   Performs addition of its parameters.
+        //
+        // Parameters:
+        //   x:
+        //     The X operand.
+        //
+        //   y:
+        //     The Y operand.
+        //
+        // Returns:
+        //   Result of calculations.
         private decimal Add(decimal x, decimal y)
         {
             return x + y;
         }
-
+        //
+        // Summary:
+        //   Subtracts Y from X.
+        //
+        // Parameters:
+        //   x:
+        //     The X operand.
+        //
+        //   y:
+        //     The Y operand.
+        //
+        // Returns:
+        //   Result of calculations.
         private decimal Subtract(decimal x, decimal y)
         {
             return x - y;
         }
-
+        //
+        // Summary:
+        //   Multiplys X and Y.
+        //
+        // Parameters:
+        //   x:
+        //     The X operand.
+        //
+        //   y:
+        //     The Y operand.
+        //
+        // Returns:
+        //   Result of calculations.
         private decimal Multiply(decimal x, decimal y)
         {
             return x * y;
         }
-
+        //
+        // Summary:
+        //   Divides X by Y.
+        //
+        // Parameters:
+        //   x:
+        //     The X operand.
+        //
+        //   y:
+        //     The Y operand.
+        //
+        // Returns:
+        //   Result of calculations.
         private decimal Divide(decimal x, decimal y)
         {
             return x / y;
         }
-
+        //
+        // Summary:
+        //   Prints error message.
+        //
+        // Parameters:
+        //   text:
+        //     The message text.
         private void PrintError(string text)
         {
             Console.WriteLine("ERROR: {0}", text);
         }
-
+        //
+        // Summary:
+        //   Prints help message.
+        //
+        // Parameters:
+        //   text:
+        //     The message text.
         private void PrintHelp(string text)
         {
             Console.WriteLine("HELP: {0}", text);
         }
-
+        //
+        // Summary:
+        //   Prints calculations result.
+        //
+        // Parameters:
+        //   result:
+        //     The result to print.
         private void PrintResult(decimal result)
         {
             Console.WriteLine("Operation result: {0}", result);
