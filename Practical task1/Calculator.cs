@@ -34,11 +34,10 @@ namespace Practical_task1
         public void Run()
         {
             decimal x, y;
-            string op, error;
+            string op;
 
             PromptInput(out x, out y, out op);
-            if (CheckInput(x, y, op, out error)) PrintResult(CalcResult(x, y, op));
-            else PrintError(error);
+            PrintResult(CalcResult(x, y, op));
         }
 
         private void PromptInput(out decimal x, out decimal y, out string op)
@@ -66,28 +65,14 @@ namespace Practical_task1
 
         private void OnWrongOperand()
         {
-            PrintError("wrong operand entered");
-            PrintHelp("Enter number and press 'Enter'");
+            PrintError("Wrong operand entered.");
+            PrintHelp("Enter number and press 'Enter'.");
         }
 
         private void OnWrongOperation()
         {
-            PrintError("wrong operation entered");
-            PrintHelp("Enter single operation character and press 'Enter'");
-        }
-
-        private bool CheckInput(decimal x, decimal y, string op, out string error)
-        {
-            if (op == "/")
-            {
-                if (y == 0)
-                {
-                    error = "division by zero";
-                    return false;
-                }
-            }
-            error = null;
-            return true;
+            PrintError("Wrong operation entered.");
+            PrintHelp("Enter single operation character and press 'Enter'.");
         }
 
         private decimal CalcResult(decimal x, decimal y, string op)
@@ -129,7 +114,7 @@ namespace Practical_task1
 
         private void PrintError(string text)
         {
-            Console.WriteLine("ERROR: {0}!", text);
+            Console.WriteLine("ERROR: {0}", text);
         }
 
         private void PrintHelp(string text)

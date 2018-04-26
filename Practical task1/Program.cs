@@ -33,9 +33,8 @@ namespace Practical_task1
     {
         static void Main(string[] args)
         {
-            // need to print help very extensively for program to be sane
-            // test int.TryParse digit limits -- OK! (but result still strives from overflow! decimal ?? double ?)
-            // add license in all files
+            // help before progam starts
+            // move exception handling to class method?
             // test everything on VM
 
             try
@@ -45,13 +44,10 @@ namespace Practical_task1
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ERROR: {0}!", ex.Message);
+                Console.WriteLine("ERROR: {0}", ex.Message);
             }
             Console.Write("Press any key to exit...");
             Console.ReadKey(true);
         }
-
-
-        
     }
 }
