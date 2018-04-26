@@ -23,15 +23,11 @@ namespace Practical_task1
 
         public void Run()
         {
-            int x, y, result;
+            int x, y;
             string op, error;
 
             PromptInput(out x, out y, out op);
-            if (CheckInput(x, y, op, out error))
-            {
-                CalcResult(x, y, op, out result);
-                PrintResult(result);
-            }
+            if (CheckInput(x, y, op, out error)) PrintResult(CalcResult(x, y, op));
             else PrintError(error);
         }
 
@@ -85,26 +81,41 @@ namespace Practical_task1
             return true;
         }
 
-        private void CalcResult(int x, int y, string op, out int result)
+        private int CalcResult(int x, int y, string op)
         {
             switch (op)
             {
                 case "+":
-                    result = x + y;
-                    break;
+                    return Add(x, y);
                 case "-":
-                    result = x - y;
-                    break;
+                    return Subtract(x, y);
                 case "*":
-                    result = x * y;
-                    break;
+                    return Multiply(x, y);
                 case "/":
-                    result = x / y;
-                    break;
+                    return Divide(x, y);
                 default:
-                    result = 0;
-                    break;
+                    return 0;
             }
+        }
+
+        private int Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        private int Subtract(int x, int y)
+        {
+            return x - y;
+        }
+
+        private int Multiply(int x, int y)
+        {
+            return x * y;
+        }
+
+        private int Divide(int x, int y)
+        {
+            return x / y;
         }
 
         private void PrintError(string text)

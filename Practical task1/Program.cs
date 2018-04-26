@@ -24,7 +24,7 @@ namespace Practical_task1
             {
                 Console.WriteLine("ERROR: Something goes wrong!");
             }
-            Console.Write("Print any key to exit...");
+            Console.Write("Press any key to exit...");
             Console.ReadKey(true);
         }
 
