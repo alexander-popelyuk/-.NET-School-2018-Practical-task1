@@ -8,19 +8,6 @@ namespace Practical_task1
 {
     class Calculator
     {
-        // generic constants
-        const string OPERATION_LIST = "+-*/";
-
-        // errors list
-        const string OPERAND_ERROR_TEXT = "wrong operand entered";
-        const string OPERATION_ERROR_TEXT = "wrong operation entered";
-        const string DIV_ZERO_ERROR_TEXT = "division by zero";
-
-        // help texts
-        const string OPERAND_HELP_TEXT = "Enter integer value and press 'Enter'";
-        const string OPERATION_HELP_TEXT = "Enter single operation character and press 'Enter'";
-        const string GENERAL_HELP_TEXT = "Press 'Ctrl+C' to exit";
-
         public void Run()
         {
             decimal x, y;
@@ -40,13 +27,14 @@ namespace Practical_task1
 
         private bool PromptOperand(string name, out decimal value)
         {
-            Console.Write("Please, enter integer operand {0}: ", name);
+            Console.Write("Please, enter operand number {0}: ", name);
             string input = Console.ReadLine();
             return decimal.TryParse(input, out value);
         }
 
         private bool PromptOperation(out string operation)
         {
+            const string OPERATION_LIST = "+-*/";
             Console.Write("Please, enter desired operation [{0}]: ", OPERATION_LIST);
             string input = Console.ReadLine();
             operation = input.Trim();
@@ -55,16 +43,14 @@ namespace Practical_task1
 
         private void OnWrongOperand()
         {
-            PrintError(OPERAND_ERROR_TEXT);
-            PrintHelp(OPERAND_HELP_TEXT);
-            PrintHelp(GENERAL_HELP_TEXT);
+            PrintError("wrong operand entered");
+            PrintHelp("Enter number and press 'Enter'");
         }
 
         private void OnWrongOperation()
         {
-            PrintError(OPERATION_ERROR_TEXT);
-            PrintHelp(OPERATION_HELP_TEXT);
-            PrintHelp(GENERAL_HELP_TEXT);
+            PrintError("wrong operation entered");
+            PrintHelp("Enter single operation character and press 'Enter'");
         }
 
         private bool CheckInput(decimal x, decimal y, string op, out string error)
@@ -73,7 +59,7 @@ namespace Practical_task1
             {
                 if (y == 0)
                 {
-                    error = DIV_ZERO_ERROR_TEXT;
+                    error = "division by zero";
                     return false;
                 }
             }
@@ -125,7 +111,8 @@ namespace Practical_task1
 
         private void PrintHelp(string text)
         {
-            Console.WriteLine("HELP: {0}!", text);
+            Console.WriteLine("HELP: {0}.", text);
+            Console.WriteLine("HELP: Press 'Ctrl+C' to exit.");
         }
 
         private void PrintResult(decimal result)
