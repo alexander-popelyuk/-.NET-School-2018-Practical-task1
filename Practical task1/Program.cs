@@ -11,7 +11,7 @@ namespace Practical_task1
         static void Main(string[] args)
         {
             // need to print help very extensively for program to be sane
-            // test int.TryParse digit limits
+            // test int.TryParse digit limits -- OK! (but result still strives from overflow! decimal ?? double ?)
             // add license in all files
             // test everything on VM
 

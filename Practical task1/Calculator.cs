@@ -23,7 +23,7 @@ namespace Practical_task1
 
         public void Run()
         {
-            int x, y;
+            decimal x, y;
             string op, error;
 
             PromptInput(out x, out y, out op);
@@ -31,18 +31,18 @@ namespace Practical_task1
             else PrintError(error);
         }
 
-        private void PromptInput(out int x, out int y, out string op)
+        private void PromptInput(out decimal x, out decimal y, out string op)
         {
             while (!PromptOperand("X", out x)) OnWrongOperand();
             while (!PromptOperand("Y", out y)) OnWrongOperand();
             while (!PromptOperation(out op)) OnWrongOperation();
         }
 
-        private bool PromptOperand(string name, out int value)
+        private bool PromptOperand(string name, out decimal value)
         {
             Console.Write("Please, enter integer operand {0}: ", name);
             string input = Console.ReadLine();
-            return int.TryParse(input, out value);
+            return decimal.TryParse(input, out value);
         }
 
         private bool PromptOperation(out string operation)
@@ -67,7 +67,7 @@ namespace Practical_task1
             PrintHelp(GENERAL_HELP_TEXT);
         }
 
-        private bool CheckInput(int x, int y, string op, out string error)
+        private bool CheckInput(decimal x, decimal y, string op, out string error)
         {
             if (op == "/")
             {
@@ -81,7 +81,7 @@ namespace Practical_task1
             return true;
         }
 
-        private int CalcResult(int x, int y, string op)
+        private decimal CalcResult(decimal x, decimal y, string op)
         {
             switch (op)
             {
@@ -98,22 +98,22 @@ namespace Practical_task1
             }
         }
 
-        private int Add(int x, int y)
+        private decimal Add(decimal x, decimal y)
         {
             return x + y;
         }
 
-        private int Subtract(int x, int y)
+        private decimal Subtract(decimal x, decimal y)
         {
             return x - y;
         }
 
-        private int Multiply(int x, int y)
+        private decimal Multiply(decimal x, decimal y)
         {
             return x * y;
         }
 
-        private int Divide(int x, int y)
+        private decimal Divide(decimal x, decimal y)
         {
             return x / y;
         }
@@ -128,7 +128,7 @@ namespace Practical_task1
             Console.WriteLine("HELP: {0}!", text);
         }
 
-        private void PrintResult(int result)
+        private void PrintResult(decimal result)
         {
             Console.WriteLine("Operation result: {0}!", result);
         }
