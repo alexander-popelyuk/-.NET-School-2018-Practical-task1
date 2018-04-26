@@ -22,7 +22,7 @@ namespace Practical_task1
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ERROR: Something goes wrong!");
+                Console.WriteLine("ERROR: {0}!", ex.Message);
             }
             Console.Write("Press any key to exit...");
             Console.ReadKey(true);
