@@ -31,7 +31,7 @@ namespace Practical_task1
 {
     //
     // Summary:
-    //  Incapsulates calculator object.
+    //  Encapsulates calculator object.
     class Calculator
     {
         //
@@ -66,7 +66,7 @@ namespace Practical_task1
         }
         //
         // Summary:
-        //   Promts user for number operand.
+        //   Prompts user for number operand.
         //
         // Parameters:
         //   name:
@@ -85,7 +85,7 @@ namespace Practical_task1
         }
         //
         // Summary:
-        //   Promts user for operation.
+        //   Prompts user for operation.
         //
         // Parameters:
         //   operation:
@@ -103,7 +103,7 @@ namespace Practical_task1
         }
         //
         // Summary:
-        //   Performs wrong operand error handling.
+        //   Performs 'wrong operand' error handling.
         private void OnWrongOperand()
         {
             PrintError("Wrong operand entered.");
@@ -111,7 +111,7 @@ namespace Practical_task1
         }
         //
         // Summary:
-        //   Performs wrong operation error handling.
+        //   Performs 'wrong operation' error handling.
         private void OnWrongOperation()
         {
             PrintError("Wrong operation entered.");
@@ -185,7 +185,7 @@ namespace Practical_task1
         }
         //
         // Summary:
-        //   Multiplys X and Y.
+        //   Multiplies X and Y.
         //
         // Parameters:
         //   x:
